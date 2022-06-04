@@ -6,8 +6,10 @@ export const MENU_OPEN = '@customization/MENU_OPEN';
 // action - snackbar
 export const SNACKBAR_OPEN = '@snackbar/SNACKBAR_OPEN';
 
-// action - cart
-export const ADD_PRODUCTS = '@cart/ADD_PRODUCTS';
-export const REMOVE_PRODUCT = '@cart/REMOVE_PRODUCT';
-export const UPDATE_QUANTITY = '@cart/UPDATE_QUANTITY';
-export const RESET_CART = '@cart/RESET_CART';
+// action - notes
+export const FETCH_NOTE_PENDING = '@notes/FETCH_NOTES_PENDING'
+export const FETCH_NOTES_SUCCESS = '@notes/FETCH_NOTES_SUCCESS'
+export const FETCH_NOTE_SUCCESS = '@notes/FETCH_NOTE_SUCCESS'
+export const FETCH_NOTE_ERROR = '@notes/FETCH_NOTE_ERROR'
+export const UPDATE_NOTE_ERROR = '@notes/UPDATE_NOTE_ERROR'
+export const DELETE_NOTE_SUCCESS = '@notes/DELETE_NOTE_SUCCESS'

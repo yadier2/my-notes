@@ -1,25 +1,44 @@
-import { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { NoteStyles } from './Notes.styles'
 import FormNote from 'components/FormNote/index.jsx'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { fetchNote, serviceUpdateNote } from 'store/noteApi'
+import Loading from 'components/Loading'
+import NotFound from 'components/NotFound'
 
 const UpdateNote = () => {
 	const dispatch = useDispatch()
-	const [state, setState] = useState(false)
+	const [mount, setMount] = useState(false)
+	const { note, pending, error } = useSelector((state) => state.note)
+	const navigate = useNavigate()
 	let { id } = useParams()
+
 	const onSubmit = (data) => {
-		console.log(data)
+		dispatch(serviceUpdateNote(id, data, navigate))
 	}
 
-	let data = {
-		title: 'Yadier caicedo',
-		description: 'Pepe esta viajando por europa.'
-	}
+	useEffect(() => {
+		if (!mount) {
+			setMount(true)
+			dispatch(fetchNote(id))
+		}
+	}, [mount])
+
+	if (pending) return <Loading />
+	if (error) return <NotFound />
+	let { title, description } = note
+
 	return (
 		<NoteStyles>
 			<h2 className='title'>Update note</h2>
-			<FormNote onSubmit={onSubmit} update data={data} />
+			{note && (
+				<FormNote
+					onSubmit={onSubmit}
+					update
+					data={{ title, description }}
+				/>
+			)}
 		</NoteStyles>
 	)
 }

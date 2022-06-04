@@ -18,6 +18,7 @@ export const NoteStyles = styled.div`
 		color: #e91e63;
 		cursor: pointer;
 		padding: 10px;
+		top: -20px;
 	}
 
 	.date {

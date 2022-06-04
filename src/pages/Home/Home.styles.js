@@ -44,8 +44,12 @@ export const HomeStyles = styled.main`
 		.card-body {
 			display: flex;
 			align-content: center;
+			width: 100%;
 			font-weight: 400;
 			color: #fff;
+			>h2{
+				margin: 0 auto;
+			}
 		}
 
 		.card-actions {
