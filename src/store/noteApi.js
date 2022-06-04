@@ -23,9 +23,7 @@ const fetchNote = (id) => async (dispatch) => {
 		)
 		dispatch({ type: FETCH_NOTE_SUCCESS, data: response.data })
 	} catch (error) {
-		if (error.response.status === 404) {
-			dispatch({ type: FETCH_NOTE_ERROR })
-		}
+		dispatch({ type: FETCH_NOTE_ERROR })
 	}
 }
 

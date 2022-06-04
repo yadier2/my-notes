@@ -31,4 +31,10 @@ export const NoteStyles = styled.div`
 		margin-top: 20px;
 		font-size: 18px;
 	}
+
+	@media only screen and (max-width: 600px) {
+
+    margin: 1rem;
+  
+}
 `

@@ -1,5 +1,6 @@
 import Dialog from 'components/Dialog'
 import Loading from 'components/Loading'
+import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
@@ -48,7 +49,11 @@ const Home = () => {
 						}}
 					>
 						<div className='card-head'>
-							<p>{item.updatedAt}</p>
+							<p>
+								{moment(item.updatedAt).format(
+									'MMMM Do YYYY, h:mm:ss a'
+								)}
+							</p>
 						</div>
 						<div className='card-body'>
 							<h2>{item.title}</h2>
